@@ -4,7 +4,6 @@
   <title>Next</title>
   <link href='http://fonts.googleapis.com/css?family=Muli:300,400' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
 </head>
@@ -25,7 +24,7 @@
   <div class="container">
 
     <%= yield %>
-
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </div>
 
 <footer> Copyright 2014 </footer>
