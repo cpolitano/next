@@ -50,7 +50,7 @@ function spotifyTrackById(){
 	})
 }
 
-lastFMRelated("Hey You", 10);
+// lastFMRelated("Hey You", 10);
 // spotifyTrackById();
 // spotifyResults();
 
