@@ -10,10 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= normalize.css.scss
- *= global.css.scss
- *= welcome.css.scss
- *= playlists_index.css
- *= new.css.scss
+ *= require normalize.css.scss
+ *= require global.css.scss
+ *= require welcome.css.scss
+ *= require playlists_index.css
+ *= require new.css.scss
  *= require_self
  */
