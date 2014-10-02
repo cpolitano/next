@@ -28,7 +28,6 @@ function spotifyResults(query){
 		method: "GET",
 		dataType: 'json',
 		success: function(data){
-			console.log(data);
 			for (var i = 0; i < 4; i++){
 				console.log(data.tracks.items[i].id);
 				var trackId = data.tracks.items[i].id;
@@ -50,7 +49,7 @@ function spotifyTrackById(){
 	})
 }
 
-// lastFMRelated("Hey You", 10);
-// spotifyTrackById();
-// spotifyResults();
+$("#search").on('click', function(){
+	lastFMRelated("Hey You", 10);
+});
 
