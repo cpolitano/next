@@ -1,5 +1,5 @@
 html{
-
+	height: 100%;
 }
 body{
 	width: 100%;
@@ -38,8 +38,6 @@ body{
 	}
 }
 
-
-
 #new-played{
 	float: left;
 }
@@ -55,12 +53,5 @@ body{
 .new-upcoming{
 	background-color: green;
 	height: 100%;
-	border: 1px solid white;
-}
-/************ Footer *************/
-footer{
-	clear: both;
-	width: 100%;
-	background-color: blue;
 	border: 1px solid white;
 }
