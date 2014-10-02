@@ -9,7 +9,7 @@ $backgroundColor: #492A2D;
 body {
 	background-color: $backgroundColor;
 	color: $fontColor;
-	font-family: 'Muli', sans-serif;
+	font-family: 'Muli', Arial, Helvetica, sans-serif;
 	text-align: center;
 }
 
@@ -23,7 +23,7 @@ h3 {
 
 p {
 	margin: 0 auto;
-	width: 75%;
+	width: 60%;
 }
 
 a {
