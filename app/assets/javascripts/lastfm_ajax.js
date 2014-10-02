@@ -49,5 +49,7 @@ function spotifyTrackById(){
 	})
 }
 
-lastFMRelated("Hey You", 10);
+$("#search").on('click', function(){
+	lastFMRelated("Hey You", 10);
+});
 
