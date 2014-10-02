@@ -10,10 +10,20 @@ body {
 	background-color: $backgroundColor;
 	color: $fontColor;
 	font-family: 'Muli', sans-serif;
+	text-align: center;
 }
 
 h1 {
 	font-size: 3em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+p {
+	margin: 0 auto;
+	width: 75%;
 }
 
 a {
