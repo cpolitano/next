@@ -1,9 +1,9 @@
 # Next.fm
 
-The client likes listening to new music, but has trouble managing playlists.
+Next.fm is an app to generate playlists using the last.fm API. This is a group project for General Assembly Web Development Immersive 2 in Washington, DC. Team members are Sam Barrientos, Daniel Kim, Stephen Neubig, Chris Pollock, Clare Politano, and Lisa Snider, with guidance from instructor Jesse Shawl.
 
 ## Essential
-Sometimes he’s in the mood for a genre of music. He would like to search for one track, play it, then automatically generate a list of similar tracks. The queue should be able to be edited, to remove lame songs. And he should be able to save a great playlist for later. The playlist should be about 10 songs long.
+The client likes listening to new music, but doesn't want to take time to manage playlists. Instead, the client would like to search for one track, play it, then automatically generate a list of similar tracks. The queue of upcoming tracks should be editable, with the ability to remove unwanted songs. Importantly, the user should be able to save a great playlist for later. Playlist should contain about 10 songs.
 
 Pick initial song by searching for track title, genre, artist, or album name, but the search should only return songs. Might be helpful to have a song show view that displays album and artist information.
 
