@@ -10,7 +10,9 @@ class PlaylistsController < ApplicationController
 		  @playlist = Playlist.new(playlist_params)
 		  @playlist.user_id = current_user.id 
 		if @playlist.save
-			redirect_to @playlist
+			respond_to do |format|
+				format.html { redirect_to playlist_path}
+				format.json	{render :json => @playlist}
 		end
 	end
 
