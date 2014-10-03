@@ -24,24 +24,10 @@ function spotifyResults(query, index){
 		success: function(data){
 			for (var i = 0; i < data.tracks.items.length; i++){
 				var trackId = data.tracks.items[i].id;
-				$(".pl-players").append("<div id='" + index + "' class='pl-embed pl-hidden'><iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='500' height='450'></iframe><button class='pl-previous'>Prev.</button><button class='pl-next'>Next</button></div>");
-				$(".pl-previous").on('click', prevTrack);
-				$(".pl-next").on('click', nextTrack);
+				$(".pl-players").append("<div id='" + index + "' class='pl-embed pl-hidden'><iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='500' height='450'></iframe></div>");
 			}
 		}
 	});
-}
-
-function nextTrack(){
-	console.log($(this))
-	$(this).parent().removeClass("pl-active")
-	$(".pl-embed").eq( parseInt($(this).attr("id")) + 1).addClass("pl-active")
-}
-
-function prevTrack(){
-	console.log($(this).parent())
-	$(this).removeClass("pl-active")
-	$(".pl-embed").eq( parseInt($(this).attr("id")) - 1).addClass("pl-active")
 }
 
 $("#search").on('submit', function(event){
@@ -52,5 +38,10 @@ $("#search").on('submit', function(event){
 	$(".container").html("<div class='pl-players'></div>");
 	lastFMRelated(track, artist, 10);
 	$("#0").removeClass("pl-hidden").addClass("pl-active");
+});
+
+$("a").eq(0).on('click', function(event){
+	event.preventDefault();
+	$(".container").html('<div class="pl-saved"><h2 class="pl-h2">Search for a Track</h2><form id="search"><label for="track">Track</label><input type="search" id="track"><br><label for="artist">Artist</label><input type="search" id="artist"><br><input type="submit" value="Search"></form>');
 });
 
