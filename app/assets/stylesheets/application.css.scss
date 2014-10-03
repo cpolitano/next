@@ -12,9 +12,11 @@
  *= require normalize.css.scss
  *= require global.css.scss
  *= require welcome.css.scss
- *= require playlists_index.css.scss
  *= require new.css.scss
  *= require_self
  */
+
+@import "playlists_index.css.scss";
+
 
 
