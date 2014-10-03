@@ -40,8 +40,8 @@ class PlaylistsController < ApplicationController
 
 private
 
-def playlist_params
-	params.require(:playlist).permit(:track, :artist)
-end
+	def playlist_params
+		params.require(:playlist).permit(:track, :artist)
+	end
 
 end
