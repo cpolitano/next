@@ -1,5 +1,4 @@
 /*playlists index page CSS*/
-@import "global.css.scss";
 
 .logo{
 	position: relative;
@@ -26,9 +25,14 @@
 
 #search input{
 	margin-bottom: 1em;
+	background-color: black;
 }
 
-input[type=submit] {
+#artist{
+	background-color: black;
+}
+
+input[type=submit]{
 	background-color: purple;
 
 }
