@@ -15,10 +15,6 @@
 	padding: 30px;
 }
 
-.pl-ol{
-
-}
-
 .pl-h2 {
 	padding-bottom: 20px;
 }
@@ -26,4 +22,13 @@
 .pl-li{
 	margin-left: 3px;
 	width: 75%;
+}
+
+#search input{
+	margin-bottom: 1em;
+}
+
+input[type=submit] {
+	background-color: purple;
+
 }
