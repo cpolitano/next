@@ -4,15 +4,20 @@ class PlaylistsController < ApplicationController
 
 	def index
 		@playlists = Playlist.where(user_id: current_user.id)
+		respond_to do |format|
+			format.html
+			format.json {render json: @playlists}
+		end
 	end
 
 	def create
-		  @playlist = Playlist.new(playlist_params)
-		  @playlist.user_id = current_user.id 
+		@playlist = Playlist.new(playlist_params)
+		@playlist.user_id = current_user.id 
 		if @playlist.save
 			respond_to do |format|
 				format.html { redirect_to playlist_path}
 				format.json	{render :json => @playlist}
+			end
 		end
 	end
 
