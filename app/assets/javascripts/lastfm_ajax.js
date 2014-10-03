@@ -8,12 +8,14 @@ function lastFMRelated(query, artist, limit){
 		method: "GET",
 		dataType: 'json',
 		success: function(data){
+			console.log(data)
 			for (var i = 0; i < data.similartracks.track.length; i++){
 				spotifyResults(data.similartracks.track[i].name, i);
 			}
 		}
 	});
 }
+
 
 // get results for a track search
 function spotifyResults(query, index){
