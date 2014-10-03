@@ -13,6 +13,7 @@ class PlaylistsController < ApplicationController
 			respond_to do |format|
 				format.html { redirect_to playlist_path}
 				format.json	{render :json => @playlist}
+			end
 		end
 	end
 
