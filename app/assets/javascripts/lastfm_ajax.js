@@ -1,20 +1,14 @@
 var apiKey = "b69b2078d241e58db6e23387b9b495fc";
-var artist = "Pink Floyd";
-var limit = 10;
-var track = "";
-var trackId = "6Rcv8LeOnK2i2MZ19n2fl4";
 
 // get related tracks
-function lastFMRelated(track, limit){
+function lastFMRelated(query, artist, limit){
 	var relatedTracks = [];
 	$.ajax({
-		url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + artist + "&track=" + track + "&api_key=" + apiKey + "&format=json&limit=" + limit,
+		url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + artist + "&track=" + query + "&api_key=" + apiKey + "&format=json&limit=" + limit,
 		method: "GET",
 		dataType: 'json',
 		success: function(data){
-			// console.log(data);
 			for (var i = 0; i < data.similartracks.track.length; i++){
-				// relatedTracks.push(data.similartracks.track[i].name);
 				spotifyResults(data.similartracks.track[i].name);
 			}
 		}
@@ -24,32 +18,31 @@ function lastFMRelated(track, limit){
 // get results for a track search
 function spotifyResults(query){
 	$.ajax({
-		url: "https://api.spotify.com/v1/search?query=" + query +"&offset=0&limit=20&type=track",
+		url: "https://api.spotify.com/v1/search?query=" + query +"&offset=0&limit=1&type=track",
 		method: "GET",
 		dataType: 'json',
 		success: function(data){
-			for (var i = 0; i < 4; i++){
-				console.log(data.tracks.items[i].id);
+			for (var i = 0; i < data.tracks.items.length; i++){
 				var trackId = data.tracks.items[i].id;
-				$("body").append("<iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='622' height='702'></iframe>");
+				$(".pl-players").append("<div class='pl-embed'><iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='500' height='450'></iframe><button class='previous'>Prev.</button><button class='next'>Next</button></div>");
+				$(".pl-players.next").css({"float":"right","margin-top":"20%", "margin-right": "20%"});
+				$(".pl-players.previous").css({"float":"left","margin-top":"20%", "margin-left": "20%"});
+				$(".pl-embed").css("display", "none");
 			}
 		}
 	});
 }
 
-// get a specific song form spotify
-function spotifyTrackById(){
-	$.ajax({
-		url: "https://api.spotify.com/v1/tracks/" + trackId,
-		method: "GET",
-		dataType: 'json',
-		success: function(data){
-			console.log(data);
-		}
-	})
-}
 
-$("#search").on('click', function(){
-	lastFMRelated("Hey You", 10);
-});
+// $("#new-search").on('click', function(){
+	// $(".pl-saved").remove();
+	// $(".pl-saved").html("<div class='pl-players'></div>");
+// 	var artist = $("#artist").val();
+// 	var song = $("#song").val();
+// 	lastFMRelated(song, artist, 10)
+// });
+// $(".pl-saved").remove();
+// $(".container").html("<div class='pl-players'></div>");
+// lastFMRelated("Hey You", "Pink Floyd", 5);
+// $(".pl-embed").eq(1).css("display", "block");
 
