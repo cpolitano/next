@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
 	def index
-		if current_user? 
+		if user_signed_in? 
 			redirect_to 'playlists'
 		end
 	end
