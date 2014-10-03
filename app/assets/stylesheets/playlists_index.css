@@ -26,3 +26,12 @@
 	margin-left: 3px;
 	width: 75%;
 }
+
+.history{
+	clear: both;
+	margin-top: 25%;
+}
+
+.history li{
+	float: left;
+}
