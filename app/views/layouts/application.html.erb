@@ -18,7 +18,7 @@
     	<% if user_signed_in? %>
   		Signed in as <%= current_user.email %> | <%= link_to "Playlists", playlists_path %> | <%= link_to "New Playlist", new_playlist_path %> | Not you? <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
   		<% else %>
-  			<%= link_to "sign in", new_user_session_path %>
+  			<%= link_to "sign in", playlists_path %>
   	<% end %>
   	</div> 
     </header>
