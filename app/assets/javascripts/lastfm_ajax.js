@@ -30,10 +30,23 @@ function spotifyResults(query, index){
 	});
 }
 
+function saveSearch(artistVar, trackVar){
+	$.post({
+		url: '/playlists',
+		method: "POST",
+		dataType: "json",
+		data: { playlist: {artist: artistVar, track: trackVar }},
+		success: function(){
+			console.log("success");
+		}
+	});
+}
+
 $("#search").on('submit', function(event){
 	event.preventDefault();
 	var artist = $("#artist").val();
 	var track = $("#track").val();
+	saveSearch(artist, track);
 	$(".pl-saved").remove();
 	$(".container").html("<div class='pl-players'></div>");
 	lastFMRelated(track, artist, 10);
