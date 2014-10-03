@@ -7,6 +7,11 @@ class PlaylistsController < ApplicationController
 	end
 
 	def create
+		  @playlist = Playlist.new(playlist_params)
+		  @playlist.user_id = current_user.id 
+		if @playlist.save
+			redirect_to @playlist
+		end
 	end
 
 	def new
@@ -25,5 +30,11 @@ class PlaylistsController < ApplicationController
 
 	def destroy
 	end
+
+private
+
+def playlist_params
+	params.require(:playlist).permit(:track, :artist)
+end
 
 end
