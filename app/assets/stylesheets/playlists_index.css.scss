@@ -43,3 +43,15 @@
 	border-radius: 10px;
 	outline: none;
 }
+
+input[type=search]{
+	color: white;
+	padding: 5px;
+	border-radius: 50px;
+	opacity: 1;
+	border: 1.5px solid rgba(89, 104, 150, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 0px 5px #483D8B; 
+	font-family: 'Open Sans', sans-serif;
+  	font-size: 16px;
+}
