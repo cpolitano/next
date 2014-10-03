@@ -9,14 +9,14 @@ function lastFMRelated(query, artist, limit){
 		dataType: 'json',
 		success: function(data){
 			for (var i = 0; i < data.similartracks.track.length; i++){
-				spotifyResults(data.similartracks.track[i].name);
+				spotifyResults(data.similartracks.track[i].name, i);
 			}
 		}
 	});
 }
 
 // get results for a track search
-function spotifyResults(query){
+function spotifyResults(query, index){
 	$.ajax({
 		url: "https://api.spotify.com/v1/search?query=" + query +"&offset=0&limit=1&type=track",
 		method: "GET",
@@ -24,25 +24,33 @@ function spotifyResults(query){
 		success: function(data){
 			for (var i = 0; i < data.tracks.items.length; i++){
 				var trackId = data.tracks.items[i].id;
-				$(".pl-players").append("<div class='pl-embed'><iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='500' height='450'></iframe><button class='previous'>Prev.</button><button class='next'>Next</button></div>");
-				$(".pl-players.next").css({"float":"right","margin-top":"20%", "margin-right": "20%"});
-				$(".pl-players.previous").css({"float":"left","margin-top":"20%", "margin-left": "20%"});
-				$(".pl-embed").css("display", "none");
+				$(".pl-players").append("<div id='" + index + "' class='pl-embed pl-hidden'><iframe src='https://embed.spotify.com/?uri=spotify:track:" + trackId + "' frameborder='0' allowtransparency='true' width='500' height='450'></iframe><button class='pl-previous'>Prev.</button><button class='pl-next'>Next</button></div>");
+				$(".pl-previous").on('click', prevTrack);
+				$(".pl-next").on('click', nextTrack);
 			}
 		}
 	});
 }
 
+function nextTrack(){
+	console.log($(this))
+	$(this).parent().removeClass("pl-active")
+	$(".pl-embed").eq( parseInt($(this).attr("id")) + 1).addClass("pl-active")
+}
 
-// $("#new-search").on('click', function(){
-	// $(".pl-saved").remove();
-	// $(".pl-saved").html("<div class='pl-players'></div>");
-// 	var artist = $("#artist").val();
-// 	var song = $("#song").val();
-// 	lastFMRelated(song, artist, 10)
-// });
-// $(".pl-saved").remove();
-// $(".container").html("<div class='pl-players'></div>");
-// lastFMRelated("Hey You", "Pink Floyd", 5);
-// $(".pl-embed").eq(1).css("display", "block");
+function prevTrack(){
+	console.log($(this).parent())
+	$(this).removeClass("pl-active")
+	$(".pl-embed").eq( parseInt($(this).attr("id")) - 1).addClass("pl-active")
+}
+
+$("#search").on('submit', function(event){
+	event.preventDefault();
+	var artist = $("#artist").val();
+	var track = $("#track").val();
+	$(".pl-saved").remove();
+	$(".container").html("<div class='pl-players'></div>");
+	lastFMRelated(track, artist, 10);
+	$("#0").removeClass("pl-hidden").addClass("pl-active");
+});
 
