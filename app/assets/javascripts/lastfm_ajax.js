@@ -40,11 +40,12 @@ function getSearches(){
 		method: "GET",
 		success: function(data){
 			for (var i = 0; i < data.length; i++){
-				stringVar = "Artist: " + data[i].artist + ", track: " + data[i].track
+				stringVar = "Artist: " + data[i].artist + ", Track: " + data[i].track
 				$(".history").append("<li artist='" + data[i].artist+ "' track='" + data[i].track + "' ><a href='#'>" + stringVar + "</a></li>");
 			}
 		}
 	})
+	$(".history").css("margin-top", "25%");
 }
 
 function saveSearch(artistVar, trackVar){
@@ -74,7 +75,7 @@ $("a").eq(0).on('click', function(event){
 
 getSearches();
 
-$(".history li a").on('click', function(event){
+$(".history li").on('click', function(event){
 	event.preventDefault();
 	artist = $(this).parent().attr("artist");
 	track = $(this).parent().attr("track");
