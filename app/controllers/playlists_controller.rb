@@ -13,6 +13,7 @@ class PlaylistsController < ApplicationController
 			respond_to do |format|
 				format.html { redirect_to playlist_path}
 				format.json	{render :json => @playlist}
+			end
 		end
 	end
 
@@ -35,8 +36,8 @@ class PlaylistsController < ApplicationController
 
 private
 
-def playlist_params
-	params.require(:playlist).permit(:track, :artist)
-end
+	def playlist_params
+		params.require(:playlist).permit(:track, :artist)
+	end
 
 end
