@@ -62,3 +62,37 @@ body{
 	height: 100%;
 	border: 1px solid #007F7F;
 }
+input[type=password]{
+
+	border-radius: 50px;
+	opacity: 1;
+	border: 1.5px solid rgba(89, 104, 150, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 0px 5px #dad8e7; 
+	font-family: 'Open Sans', sans-serif;
+  	font-weight: 900;
+  	font-size: 22px;
+	color: white;
+}
+input[type=email]{
+	border-radius: 50px;
+	opacity: 1;
+	border: 1.5px solid rgba(89, 104, 150, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 0px 5px #dad8e7; 
+	font-family: 'Open Sans', sans-serif;
+  	font-weight: 900;
+  	font-size: 22px;
+	color: white;
+}
+input:focus {
+	outline: 0;
+}
+input[type=submit]{
+	background-color: purple;
+	border-radius: 8px;
+	border: 2px solid purple;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
